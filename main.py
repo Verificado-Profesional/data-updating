@@ -10,8 +10,8 @@ def start():
     TendenciesRepository(settings.db_name, settings.client)
     print("connected database!")
     """Launched with `poetry run start` at root level"""
-    update_argentina_twitter_trends()
-    #update_argentina_google_trends()
+    #update_argentina_twitter_trends()
+    update_argentina_google_trends()
 
 if __name__ == "__main__":
     start()

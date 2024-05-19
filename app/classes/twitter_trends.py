@@ -34,7 +34,8 @@ class TwitterTrends():
                         'date': fecha,
                         'tweet': nombre_tendencia,
                         'url': url_tendencia,
-                        'tweet_count': tweet_count
+                        'tweet_count': tweet_count,
+                        'region': region
                     })
 
 

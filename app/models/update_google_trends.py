@@ -18,6 +18,7 @@ def update_argentina_google_trends(date=datetime.today()):
     keywords= trends.trend.tolist()
 
     province_trends = google_trends.trends_by_country(keywords)
+    province_trends['geoName'] = province_trends['geoName'].apply(lambda x: "_".join(x.lower().split(" ")))
     province_trends = province_trends.transpose()
     province_trends.columns = province_trends.iloc[0]
     province_trends = province_trends.drop(province_trends.index[0])
