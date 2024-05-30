@@ -44,15 +44,15 @@ class TwitterTrends():
 
     return tendencias,df
   
-  def get_argentina_trends(self):
-    tendencias,df = TwitterTrends.get_trends("argentina")
+  def get_region_trends(self, region):
+    tendencias,df = TwitterTrends.get_trends(region)
 
     df["datetime"]= pd.to_datetime(df["date"],dayfirst=True)
     df['datetime_arg'] = df['datetime'] - timedelta(hours=3)    
     df['datetime_arg'] = df['datetime_arg'].dt.day
     
-    
     return df
+
 
     
 
