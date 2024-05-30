@@ -10,11 +10,9 @@ settings = get_settings()
 tendencies_repository = TendenciesRepository(settings.db_name, settings.client)
 
 def update_trends(trends):
-    trends['date'] = pd.to_datetime(trends['date'], format='%d-%m-%Y %H:%M:%S')
-    trends['date'] = trends['date'].dt.strftime('%d-%m-%Y')
     trends_grouped = trends.groupby(['date', 'tweet', 'url', 'region']).agg({'tweet_count': 'sum'}).reset_index()
 
-    trends_grouped = trends_grouped.nlargest(20, 'tweet_count').reset_index(drop=True)
+    trends_grouped = trends_grouped.nlargest(15, 'tweet_count').reset_index(drop=True)
 
     region_names = {ARGENTINA_TWITTER_URL: ARGENTINA_TWITTER_URL, ROSARIO_TWITTER_URL: "rosario", CORDOBA_TWITTER_URL: "cordoba", BSAS_TWITTER_URL: "buenos-aires"}
     trends_grouped['region'] = trends_grouped['region'].apply(lambda x: region_names[x])
@@ -24,12 +22,12 @@ def update_trends(trends):
 
 def update_argentina_twitter_trends():
     twitter_trends = TwitterTrends()
-    #argentina_trends = twitter_trends.get_region_trends(ARGENTINA_TWITTER_URL)
+    argentina_trends = twitter_trends.get_region_trends(ARGENTINA_TWITTER_URL)
     buenos_aires_trends = twitter_trends.get_region_trends(BSAS_TWITTER_URL)
     rosario_trends = twitter_trends.get_region_trends(ROSARIO_TWITTER_URL)
     cordoba_trends = twitter_trends.get_region_trends(CORDOBA_TWITTER_URL)
 
-    #update_trends(argentina_trends)
+    update_trends(argentina_trends)
     update_trends(buenos_aires_trends)
     update_trends(rosario_trends)
     update_trends(cordoba_trends)
