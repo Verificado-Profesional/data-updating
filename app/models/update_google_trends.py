@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from app.repositories.tendencies_repository import TendenciesRepository
 from app.classes.google_trends import GoogleTrends
 from app.config.config import get_settings

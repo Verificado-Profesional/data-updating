@@ -1,8 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 from pytrends.request import TrendReq
-from matplotlib.dates import DateFormatter
-from datetime import datetime, timedelta
 
 class GoogleTrends():
 

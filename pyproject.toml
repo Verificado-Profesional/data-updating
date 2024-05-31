@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "data-updating"
+version = "0.1.0"
+description = "Update trend info"
+authors = ["Verificado Profesional <verificado.profesional@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app"},
+{include = "app/**/*.py"},]
+
+[tool.poetry.dependencies]
+python = "^3.10.0"
+pandas = "^2.2.0"
+pytrends = "^4.9.2"
+requests = "^2.31.0"
+beautifulsoup4 = "4.12.3"
+python-decouple = "^3.8"
+pydantic = "^1.8.2"
+pymongo = "^4.7.2"
+fastapi = "^0.63.0"
+uvicorn = "^0.13.4"
+cpunk-mongo = "^0.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "app.main:start"

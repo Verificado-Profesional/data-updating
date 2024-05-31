@@ -1,9 +1,7 @@
-from datetime import datetime
 from app.classes.twitter_trends import TwitterTrends
 from app.config.constants import ARGENTINA_TWITTER_URL, BSAS_TWITTER_URL, CORDOBA_TWITTER_URL, ROSARIO_TWITTER_URL
 from app.repositories.tendencies_repository import TendenciesRepository
 from app.config.config import get_settings
-import pandas as pd
 
 settings = get_settings()
 # Repository

@@ -2,8 +2,7 @@ from cpunk_mongo.db import DataBase
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 
-TWITTER="twitter"
-GOOGLE="google"
+from app.config.constants import GOOGLE, TWITTER
 
 
 class TendenciesRepository(DataBase):
