@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from collections import defaultdict
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class TwitterTrends():
   def get_trends(region):
@@ -47,7 +47,7 @@ class TwitterTrends():
   def get_region_trends(self, region):
     tendencias,df = TwitterTrends.get_trends(region)
 
-    df["date"]= datetime.now().strftime('%d-%m-%Y')
+    df["date"]= (datetime.now() - timedelta(hours=3)).strftime('%d-%m-%Y')
     
     return df
 
